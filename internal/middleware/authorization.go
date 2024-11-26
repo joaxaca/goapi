@@ -30,6 +30,16 @@ func Authorization(next http.Handler) http.Handler {
 			api.InternalErrorHandler(w)
 			return
 		}
-	})
 
+		var loginDetails *tools.loginDetails
+		loginDetails = (*database).GetUserLoginDetails(username)
+
+		if (loginDetails == nil || (token != (*loginDetails).AuthToken)) {
+			log.Error(UnAuthorizedError)
+			api.RequestErrorHandler(w, UnAuthorizedError)
+			return
+		}
+
+		next.ServeHTTP(w, r)
+	})
 }
