@@ -10,8 +10,8 @@ import (
 	"github.com/gorilla/schema"
 )
 
-func GetCoinBalance(w http.ResposeWriter, r *http.Request) {
-	var Params = api.CoinBalanceParams{}
+func GetCoinBalance(w http.ResponseWriter, r *http.Request) {
+	var params = api.CoinBalanceParams{}
 	var decoder *schema.Decoder = schema.NewDecoder()
 	var err error
 
