@@ -3,7 +3,6 @@ module github.com/joaxaca/goapi
 go 1.23.3
 
 require (
-	github.com/joaxaca/goapi v0.0.0-20230822123528-a98a49676213
 	github.com/go-chi/chi v1.5.5
 	github.com/sirupsen/logrus v1.9.3
 )
